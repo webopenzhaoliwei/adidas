@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <style>
+        #box{
+            width: 350px;
+            height: 450px;
+            border: 1px solid black;
+            margin: auto;
+            margin-top: 6%;
+            margin-left: 6%;
+        }
+        #box div{
+            width: 280px;
+            height: 40px;
+            border: 1px solid gray;
+           margin-top: 28px;
+           margin-left: 34px;
+            font-size: 18px;
+            text-align: center;
+            line-height: 40px; 
+        }
+        #box div input{
+            width: 180px;
+            height: 20px;
+            margin-left: 10px;
+        }
+        .aaa{
+            width: 280px;
+            height: 40px;
+            border: 1px solid gray;
+            margin-left:34px ;
+        
+        }
+        .aa{
+            margin-top: 12px;
+            margin-left:10px ;
+        }
+        #denglu{
+            width: 285px;
+            height: 45px;
+            background-color: indianred;
+            margin-top:3 px;
+            margin-left: 32px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div>
+            <label>用户名:</label><input type="text" id="name"><span></span>
+        </div>
+        <div>
+            <label>手机号:</label><input type="text" id="tel" value=""><span></span>
+        </div>
+        <div>
+            <label>验证码:</label><input type="text" id="yzm" value=""><span></span>
+        </div>
+        <div>
+            <label>密码:</label><input type="password" id="psd" value=""><span></span>
+        </div>
+        <p class="aaa">
+            <input type="checkbox" id="rad" class="aa"><span>确定并接受<a></a></span>
+        </p>
+        <button id="denglu">登录</button>
+    </div>
+    <script>
+        class B {
+            constructor() {
+                this.name = document.getElementById('name');
+                this.span1 = this.name.nextElementSibling;
+                this.tel = document.getElementById('tel');
+                this.span2 = this.tel.nextElementSibling;
+                this.yzm = document.getElementById('yzm');
+                this.span3 = this.yzm.nextElementSibling;
+                this.psd = document.getElementById('psd');
+                this.span4 = this.psd.nextElementSibling;
+                this.rad = document.getElementById('rad');
+                this.sub = document.getElementById('denglu');
+                console.log(this.sub);
+                this.a1 = false;
+                this.b1 = false;
+                this.c1 = false;
+                this.d1 = false;
+                this.addEvent();
+            }
+            addEvent() {
+                this.name.onblur = () => {
+                    this.nameZz();
+                }
+                this.tel.onblur = () => {
+                    this.telZz();
+                }
+                this.yzm.onblur = () => {
+                    this.yzmZz();
+                }
+                this.psd.onblur = () => {
+                    this.psdZz();
+                }
+                this.sub.onclick = () => {
+                    this.subZz();
+                }
+            }
+            //用户名
+            nameZz() {
+                // console.log(this.name.value);
+                console.log(this.name.value);
+                var con = this.name.value;
+                let str = /^[\u4E00-\u9FA5\w-]{4,20}$/;;
+                if (str.test(con)) {
+                    this.span1.innerHTML = '格式正确';
+                    this.a1 = true;
+                } else {
+                    this.span1.innerHTML = '格式错误';
+                    this.a1 = false;
+                }
+            }
+            // 手机号
+            telZz() {
+                let str = /^1[3,4,5,6,7,8,9]\d{9}$/
+                if (str.test(this.tel.value)) {
+                    this.span2.innerHTML = '格式正确';
+                    this.b1 = true;
+                } else {
+                    this.span2.innerHTML = '格式错误';
+                    this.c1 = false;
+                }
+            }
+            //验证码 
+            yzmZz() {
+                let str = /^\d{6}$/;
+                if (str.test(this.yzm.value)) {
+                    this.span3.innerHTML = '格式正确';
+                    this.c1 = true;
+                } else {
+                    this.span3.innerHTML = '格式错误';
+                    this.c1 = false;
+                }
+            }
+            //密码
+            psdZz() {
+                let str = /\S/;
+                if (this.psd.value.length >= 8 && this.psd.value.length <= 20 && str.test(this.psd.value)) {
+                    var a = 0, b = 0, c = 0;
+                    //判断是否存在数字
+                    var psd1 = /\d+/;
+                    a = psd1.test(this.psd.value) ? 1 : 0;
+                    //判断是否存在字母
+                    var psd2 = /[a-zA-Z]+/;
+                    b = psd2.test(this.psd.value) ? 1 : 0;
+                    // 判断是否存在特殊字符
+                    var psd3 = /[^a-zA-Z\d]+/;
+                    c = psd3.test(this.psd.value) ? 1 : 0;
+                    switch (a + b + c) {
+                        case 1:
+                            this.span4.innerHTML = '弱';
+                            break;
+                        case 2:
+                            this.span4.innerHTML = '中';
+                            break;
+                        case 3:
+                            this.span4.innerHTML = '强';
+                            break;
+                    }
+                    this.d1 = true;
+                }else{
+                    this.span4.innerHTML = '密码格式有误，重新输入';
+                    this.d1 = false;
+                }
+
+            }
+            subZz(){
+                if(this.rad.checked == true && this.b1 == true && this.c1 == true && this.d1 == true && this.a1 == true){
+                    var  name=this.name.value;
+                  var pawd=this.psd.value;
+                
+                   localStorage.setItem('user',name)
+                  
+                  localStorage.setItem('pawd',pawd)
+
+                  console.log(pawd);
+                  location.href = "login.html";
+                  return  alert('成功');  
+                  
+                }else{
+                    return alert('失败');
+                }
+            }
+        }
+        new B;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="./css/gongneng.css">
+    <style>
+         img {
+      display: block;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .loupe {
+      width: 350px;
+      height: 350px;
+      margin: 100px;
+      /* border:1px solid red ; */
+      border: 1px solid #ccc;
+      position: relative;
+
+    }
+    
+    .lbig {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 360px;
+      overflow: hidden;
+      /* display: none; */
+    }
+    .lbig img {
+      position: absolute;
+ 
+    }
+    .mask {
+      width: 100px;
+      height: 100px;
+      background: rgba(168, 168, 159, 0.4);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      cursor: move;
+      display: none;
+    }
+
+    .lsmall {
+      position: relative;
+    }
+    .gwcz{
+        position: absolute;
+        top: 242px;
+        right: 300px;
+        width: 365px;
+        height: 350px;
+        /* border: 1px solid red; */
+        float: right;
+        background-color: white;
+    }
+    .gwcz h2{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .gwcz h3{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .gwcz p{
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    .gwcz1 div{
+        margin-top: 20px;
+        margin-left: 10px;
+        width: 60px;
+        height: 60px;
+        /* border: 1px solid red; */
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="adisas">
+
+   
+
+    <!-- 立即选购 -->
+    <div class="lijixuangou"><img src="./img/01.png" alt=""></div>
+    <!-- 导航栏 -->
+    <div>
+        <!-- 功能栏 -->
+        <div class="gongneng">
+            <ul class="gn">
+                <li class="g1">订单追踪</li>
+                <li class="g2">帮助中心</li>
+                <li class="g3"> <a href="./cart.html"> 购物车</a></li>
+                <li class="g4">  <a href="./zz.html">注册/登录</a></li>
+               
+            </ul>
+        </div>
+        <!-- 二级菜单与搜素框 -->
+        <div class="cs">
+            <!-- 图标 -->
+            <div class="cstu"> <img src="./img/2.1.png" alt=""></div>
+            <!-- 二级菜单 -->
+            <div class="clcai">
+                <ul id="clcaiul">
+                    <li id="clcaiul1">
+                        男子
+                    </li>
+                    <li>女子</li>
+                    <li>儿童</li>
+                    <li>运动</li>
+                    <li>品牌</li>
+                    <li>七夕特辑</li>
+                    <li>运动吧少年</li>
+                </ul>
+
+            </div>
+
+        </div>
+        <!-- 搜索框 -->
+        <div class="cssou"><input type="text" value="七夕"></div>
+    </div>
+    </div>
+    <!-- 放大镜 -->
+    <div class="loupe">
+        <!-- 小图 -->
+       <div class="lsmall ">
+        <div class="t1">
+
+        </div>
+        <div class="mask"></div>
+       </div>
+       <!-- 大图 -->
+       <div class="lbig">
+       
+     </div>
+    </div>
+    <div class="gwcz">
+        <h3>运动表现,跑步</h3>
+        <h2>STRUTTER 跑步运动鞋</h2>
+        <p>********评价</p>
+        <p>$</p>
+        <p>粉末白/橙色/紫色/蓝色/金金属(FY4375)</p>
+        <div class="gwcz1">
+            <div class="dqtp"></div>
+            <div class="dqtp"></div>
+            <div class="dqtp"></div>
+        </div>
+    </div>
+    <script src="./js/lib.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/depalis.js"></script>
+</body>
+</html>

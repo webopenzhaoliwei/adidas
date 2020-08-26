@@ -1,0 +1,467 @@
+body {
+    background-color: #e8ddfb;
+   /* position: relative; */
+}
+html {
+    overflow-y: overlay;
+  }
+.adisas{
+    height: 40%;
+    /* position: fixed; */
+    /* top: 0px; */
+
+}
+/* 功能栏 */
+ul li{
+    list-style: none;
+}
+.lijixuangou{
+    width: 100%;
+    height: 53px;  
+}
+.lijixuangou img{
+    width: 100%;
+    height: 53px;
+    /* border: 1px solid  black; */
+    background-color: #c3d2ea;
+}
+.gongneng{
+    width: 100%;
+    height: 32px;
+    border: 1px solid  black;
+    background-color: #000000;
+}
+
+.gn{
+    width: 400px;
+    height: 30px;
+    border:1px solid res ;
+    float: right;
+    margin-top: -1px;
+}
+.gongneng ul li{
+    color: #ffffff;
+    line-height: 30px;
+    float: left;
+    width: 25%;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+}
+/* 二级菜单与搜索框 */
+.cs{
+    width: 100%;
+    height: 55px;
+    /* /* border: 1px solid  black; */
+    background-color: #000000;  
+     margin-top: -1px;
+     /* border: 1px solid red; */
+}
+.cstu{
+    width: 64px;
+    height: 55px;
+    float: left;
+    /* border: 1px solid red; */
+
+    margin-top: -20px;
+    margin-left: 20px;
+}
+.cstu img{
+    width: 64px;
+    height: 55px;
+    /* margin-left: 20px; */
+    /* border: 1px solid red;  */
+} 
+
+.clcai{
+    width: 620px;
+    height: 55px;
+    float: left;
+    /* position: relative; */
+    /* margin-left: 20px; */
+    /* margin-top: -1px; */
+    /* border: 1px solid red; */
+}
+ #clcaiul{
+    width: 580px;
+    height: 53px; 
+    float: left;   
+    /* border: 1px solid red; */
+    margin-top: 0px;
+    margin-left: 0px;
+}  
+#clcaiul li{
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 50px;
+    width: 80px;
+    height: 50px;
+    float: left;  
+
+    /* border: 1px solid red; */
+    text-align: center;
+}
+.cssou{
+    width: 182px;
+    height: 50px;  
+    line-height: 50px;
+    float: right;
+    text-align: center;
+    margin-right: 48px;
+    position: relative;
+    top: -46px;
+}
+.cssou input{
+    width: 180px;
+    height: 32px; 
+   
+    display: block; 
+}
+
+/* 二级菜单移动 */
+
+
+#clcaiyd1{
+    width: 100%;
+    height: 385px;
+    background-color: white;
+    /* position: relative; */
+    position: absolute;
+    top: 148px;
+    border:1px solid red;
+    display: none;
+}
+/* 3大图展示 */
+.dtzs{
+    width: 100%;
+    height: 385px;
+    margin-top:0px ;
+}
+.dtzs1{
+    width: 100%;
+    height: 385px; 
+    margin-top:-50px ;
+}
+/* <!-- 4商品展示 --> */
+.spzs{
+   width: 100%;
+   height: 230px; 
+   margin-left: 70px;
+
+}
+.spzs1{
+    width: 20%;
+   height: 230px;  
+   float: left;
+   /* border: 1px solid red; */
+   text-align: center;
+}
+.spzs2{
+    width: 20%;
+   height: 230px;  
+   float: left;
+   /* border: 1px solid red; */
+   margin-left: 35px;
+   text-align: center;
+}
+.spzs3{
+    width: 20%;
+   height: 230px;  
+   float: left;
+   /* border: 1px solid red; */
+   margin-left: 35px;
+   text-align: center;
+}
+.spzs4{
+    width: 20%;
+   height: 230px;  
+   float: left;
+   /* border: 1px solid red; */
+   margin-left: 35px;
+   text-align: center;
+}
+/* 商品展示 */
+.spzs5{
+    width: 100%;
+    height: 396px;
+    display: inline-flex;
+   /* border: 1px solid red; */
+}
+.spt1{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+.sp2{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+/* 6轮播图 */
+ .slider img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slider {
+    height: 475px;
+    width: 103%;
+    margin-top:-20px;
+    margin-left: -39px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slider li {
+    position: absolute;
+    display: none;
+  }
+
+  .slider li:first-child {
+    display: block;
+  }
+
+  /*文字部分的样式*/
+
+  .slider li p {
+    position: absolute;
+    width: 100%;
+    padding: 10px 0;
+    text-indent: 2em;
+    background-color: rgba(0, 0, 0, .6);
+    bottom: 0;
+    left: 0;
+    font-size: 18px;
+
+    /*给文字设置位移到底部去*/
+    transform: translate3d(0, 100%, 0);
+    /*添加过渡*/
+    transition: all .8s;
+  }
+
+  /*当前展示li 下的文字样式*/
+
+  .slider li.current p {
+    /*文字位移到0的位置，正常显示*/
+    transform: translate3d(0, 0, 0);
+  }
+
+  .slider li a {
+    color: #fff;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .slider:hover .arrow {
+    display: block;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    font-family: "SimSun", "宋体";
+    width: 30px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  .arrow-left:hover,
+  .arrow-right:hover {
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  .arrow-left {
+    left: 0;
+  }
+
+  .arrow-right {
+    right: 0;
+  }
+/* 8商品展示 */ */
+.spzs7{
+    width: 100%;
+    height: 396px; 
+    margin-top:10px ;
+}
+.spzs7 img{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+/* 8商品展示 */
+.spzs8{
+    width: 100%;
+    height: 396px; 
+   
+}
+.spzs8 img{
+    width: 50%;
+    height: 100%;
+    /* float: left; */
+    margin-top:10px ;
+}
+
+/* 8商品展示 */
+.spzs9{
+    width: 100%;
+    height: 396px; 
+   
+}
+.spzs9 img{
+    width: 100%;
+    height: 100%;
+    margin-top: 25px;
+    /* float: left; */
+}
+/* 8商品展示 */
+.spzs10{
+    width: 100%;
+    height: 396px; 
+   
+}
+.spzs10 img{
+    width: 48%;
+    height: 100%;
+   padding: 7px;
+   margin-top: 46px;
+}
+/* 11商品展示 */
+.spzs11{
+    width: 100%;
+    height: 507px;
+    margin-top: 56px;
+    /* border: 1px solid red; */
+}
+.spzs11s{
+    width: 90%;
+    height: 252px;
+    margin-left: 100px;
+    /* padding-left: 0px; */
+    /* border: 1px solid red; */
+}
+.spzs11s img{
+    width: 23%;
+    height: 241px;
+    /* padding-left:0px  ; */
+    margin-left: -6px;
+    /* border: 1px solid red; */
+}
+
+.spzs11x{
+    width: 90%;
+    height: 252px;
+    margin-left: 100px;
+    margin-top: -11px;
+    /* border: 1px solid red; */
+}
+.spzs11x img{
+    width: 23%;
+    height: 241px;
+    margin-left: -6px;
+    /* border: 1px solid red; */
+}
+/*12 本月推荐 */
+.bytj{
+    width: 100%;
+    height: 340px;
+    /* border: 1px solid red;   */
+    position: relative;
+}
+#ztp1{
+    width: 20px;
+    height: 20px;
+    /* border: 1px solid red;   */
+    position: absolute;
+    top: 170px;
+    left: 10px;
+}
+#ztp2{
+    width: 20px;
+    height: 20px;
+    /* border: 1px solid red;   */
+    position: absolute;
+    top: 170px;
+    right: 60px;
+}
+.zt{
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid red;   */
+    font-size: 35px;
+    color: black;
+    margin-top:0px ;
+    text-align: center;
+}
+
+#zt1{
+    width: 100%;
+    height: 289px;
+    /* border: 1px solid red;   */
+    margin-top:-35px ; 
+    margin-left: 25px;
+    float: left;
+    display: block;
+    background-color:white ;
+}
+#zt2{
+    width: 100%;
+    height: 289px;
+    /* border: 1px solid red;   */
+    margin-top:0px ; 
+    margin-left: 25px;
+    float: left;
+    display: none;
+    background-color:white ;
+}
+#zt1 img{
+    width: 21%;
+    height: 100%;
+    padding-left: 20px;
+
+    /* border: 1px solid red;   */
+}
+#zt2 img{
+    width: 21%;
+    height: 100%;
+    padding-left: 20px;
+    /* margin-left:30px ; */
+    /* border: 1px solid red;   */
+}
+/* 13联系方式 */
+.lxwm{
+    width: 100%;
+    height: 101px;
+    background-color: black;
+    color: white;
+}
+.lxwm1{
+    width: 70%;
+    height: 101px;
+    line-height: 101px;
+    margin-left:85px ;
+    float: left;
+}
+.lxwm1 p{
+    width: 19%;
+    height: 101px;
+    float: left;
+}
+.lxwm2{
+    width: 20%;
+    height: 101px;
+    line-height: 123px;
+    margin-left:30px ;
+    float: right;
+}
