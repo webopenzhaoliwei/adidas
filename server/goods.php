@@ -5,14 +5,40 @@ include('./mysql.php');
 $fn = $_GET['fn'];  // lst
 $fn();  // lst()
 function lst(){
-  $sql = 'select * from adidas';
+/*************分页设置********************/ 
+  // 设置长度
+  $lengths=2;
+  //当前页数
+  $page=$_GET['page'];
+  // 计算起始位置 开始位置=(当前页数-1)*lengths
+  $start=($page-1)*$lengths;
+  //取出第几条数据
+  $sql1='select count(id) cou from adidas';
+  $cou=select($sql1)[0]['cou'];//全部的条数
+  // 计算总的页数  全部的条数/每页的条数
+  $pcount=round($cou/$lengths);
+//取出第一页 第几条数据
+  $sql = "select * from adidas order by id limit $start,$lengths";
+  // echo $sql;
+  // $sql = 'select * from adidas';
   $data = select($sql);
 
   //print_r($data);
   echo json_encode([
     'stateCode'=>200,
     'state'=>'success',
-    'data'=>$data
+    'data'=>$data,
+     'cout'=>$pcount
+  ]);
+}
+function lstr(){
+  $sql = 'select * from adidas';
+  $data = select($sql);
+  echo json_encode([
+    'stateCode'=>200,
+    'state'=>'success',
+    'data'=>$data,
+    
   ]);
 }
 //lst();

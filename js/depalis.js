@@ -2,7 +2,7 @@ class delpalis {
     constructor() {
         this.list();
         this.dzid = location.search.split('=')[1] //获取地址栏id
-        console.log(this.dzid);
+        // console.log(this.dzid);
         this.del()
     }
 
@@ -10,7 +10,7 @@ class delpalis {
     list() {
         // 通过ajax获取数据库数据 取出图片并渲染列表
         ajax.get('./server/goods.php', {
-            fn: "lst"
+            fn: "lstr"
         }).then(res => {
             var {
                 stateCode,
@@ -23,7 +23,7 @@ class delpalis {
                 var str2 = "";
                 str += `<div><img src="${data[this.dzid].goodsImg}" width="350"></div>`
                 str1 += `<div><img src="${data[this.dzid].goodsImg}" width="800" class="imgs"></div>`
-                str2 += `<div><img src="${data[this.dzid].goodsImg}"  width="60" height="60" ></div>`
+                str2 += `<div><img src="./img/ljz.jpg" data-src="${data[this.dzid].goodsImg}"  width="60" height="60" class="icon"></div>`
                 $('.t1').innerHTML = str;
                 $('.lbig').innerHTML = str1;
                 all('.dqtp').forEach(ele=>{
@@ -70,11 +70,12 @@ class delpalis {
         var pagey = e.pageY;
         var lsmallx = $('.loupe').offsetLeft; //小图div到左边的距离
         var lsmally = $('.loupe').offsetTop;
-        console.log(lsmallx);
+        // console.log(lsmallx);
         //获取鼠标位置=鼠标对于文档的位置-小图div的offsetleft-移动模块的半径
         var maskw = ($('.mask').offsetWidth) / 2
         var maskh = ($('.mask').offsetHeight) / 2
         console.log(maskw);
+        // console.log('111');
         // 让昂运动模块不能出去父元素的边框
         var targetx = pagex - lsmallx - maskw;
         var targety = pagey - lsmally - maskh;
@@ -99,7 +100,7 @@ class delpalis {
 
         var tarbetdx=$('.imgs').offsetWidth-$('.lbig').offsetWidth;//大图减去大图div的宽度
         var tarbetdy=$('.imgs').offsetHeight-$('.lbig').offsetHeight;
-        console.log(tarbetdx);
+        // console.log(tarbetdx);
         var tmpbx=targetx/tmpx*tarbetdx;
         var tmpby=targety/tmpy*tarbetdy;
 
@@ -109,3 +110,53 @@ class delpalis {
     }
 }
 new delpalis;
+
+
+// 懒加载
+// onload是等所有的资源文件加载完毕以后再绑定事件
+window.onload = function(){
+	// 获取图片列表，即img标签列表
+	var imgs =  document.getElementsByClassName('icon')
+    // console.log(imgs);
+	// 获取到浏览器顶部的距离
+	function getTop(e){
+		return e.offsetTop;
+	}
+
+	// 懒加载实现
+	function lazyload(imgs){
+		// 可视区域高度
+		var h = window.innerHeight;
+		//滚动区域高度
+		var s = document.documentElement.scrollTop || document.body.scrollTop;
+		for(var i=0;i<imgs.length;i++){
+			//图片距离顶部的距离大于可视区域和滚动区域之和时懒加载
+			if ((h+s)>getTop(imgs[i])) {
+                console.log('11');
+				// 真实情况是页面开始有2秒空白，所以使用setTimeout定时2s
+				(function(i){
+					setTimeout(function(){
+						// 不加立即执行函数i会等于9
+						// 隐形加载图片或其他资源，
+						//创建一个临时图片，这个图片在内存中不会到页面上去。实现隐形加载
+						var temp = new Image();
+						temp.src = imgs[i].getAttribute('data-src');//只会请求一次
+						// onload判断图片加载完毕，真是图片加载完毕，再赋值给dom节点
+						temp.onload = function(){
+							// 获取自定义属性data-src，用真图片替换假图片
+                            imgs[i].src = imgs[i].getAttribute('data-src')
+                            // console.log(imgs[i].getAttribute('data-src'));
+                            // console.log(imgs[i].src);
+						}
+					},1000)
+				})(i)
+			}
+		}
+	}
+	lazyload(imgs);
+
+	// 滚屏函数
+	window.onscroll =function(){
+		lazyload(imgs);
+	}
+}
